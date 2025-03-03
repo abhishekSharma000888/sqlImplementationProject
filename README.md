@@ -1,7 +1,7 @@
-# sqlImplementationProject
+# SQL Implementation Project
 A detailed project that implements SQL learnings and hands-on practice with relational tables.
 
--- Commands to Set Up the Database
+#  Commands to Set Up the Database
 -- 1. Clone the repository and navigate to the project folder
 --    git clone <repo-url>
 --    cd SDET_Testing_Platform
@@ -18,12 +18,12 @@ A detailed project that implements SQL learnings and hands-on practice with rela
 --    SELECT * FROM Test_Cases;
 --    SELECT * FROM Test_Executions;
 
--- SDET Testing Platform Database Schema
+#  SDET Testing Platform Database Schema
 
 CREATE DATABASE SDET_Testing_Platform;
 USE SDET_Testing_Platform;
 
--- Table to store information about test projects
+#  Table to store information about test projects
 CREATE TABLE Test_Projects (
     project_id INT AUTO_INCREMENT PRIMARY KEY,
     project_name VARCHAR(255) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Test_Projects (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Table to store test cases linked to test projects
+#  Table to store test cases linked to test projects
 CREATE TABLE Test_Cases (
     case_id INT AUTO_INCREMENT PRIMARY KEY,
     project_id INT,
@@ -43,7 +43,7 @@ CREATE TABLE Test_Cases (
     FOREIGN KEY (project_id) REFERENCES Test_Projects(project_id) ON DELETE CASCADE
 );
 
--- Table to store test executions with execution environment details
+#  Table to store test executions with execution environment details
 CREATE TABLE Test_Executions (
     execution_id INT AUTO_INCREMENT PRIMARY KEY,
     case_id INT,
@@ -55,7 +55,7 @@ CREATE TABLE Test_Executions (
     FOREIGN KEY (case_id) REFERENCES Test_Cases(case_id) ON DELETE CASCADE
 );
 
--- Sample Data
+#  Sample Data
 INSERT INTO Test_Projects (project_name, description) VALUES
 ('E-commerce Platform', 'Testing the core features of an e-commerce platform'),
 ('Banking App', 'Automated testing for a banking application');
